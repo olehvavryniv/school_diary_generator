@@ -1,6 +1,7 @@
 {
   "name": "school_diary_generator",
   "version": "0.1.0",
+  "homepage": "https://olehvavryniv.github.io/school_diary_generator",
   "private": true,
   "dependencies": {
     "bootstrap": "^5.3.3",
