@@ -1,4 +1,4 @@
-import { Button, Card, Col, Container, Form, Row, Table } from 'react-bootstrap';
+import { Alert, Button, Card, Col, Container, Form, Row, Table } from 'react-bootstrap';
 import './App.css';
 import { generatePdf } from './pdfGenerator';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -13,6 +13,7 @@ function App() {
     const pdfData = {
       subjectName: subjectName,
       workItems: data,
+      lessonPrice
     }
     generatePdf(pdfData);
   }
@@ -52,6 +53,10 @@ function App() {
   const setRatingDate = (ratingItem, value) => {
     ratingItem.date = value;
     setData([...data]);
+  }
+
+  const validateData = () => {
+
   }
 
   return (

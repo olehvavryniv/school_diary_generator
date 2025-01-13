@@ -59,7 +59,7 @@ function generatePdf(data) {
           widths: ["*", "*", "*"],
           body: [
             [{ text: "Всього по видах робіт", bold: true }, `Максимально - ${ratingsTotal}`, "Фактично -"],
-            [{ text: "Відвідування уроків", bold: true }, `Максимально - ${visitsTotal} (1,5 б./урок)`, "Фактично -"],
+            [{ text: "Відвідування уроків", bold: true }, `Максимально - ${visitsTotal} (${data.lessonPrice} б./урок)`, "Фактично -"],
             [{ text: "Всього за семестр", bold: true }, "Максимально - 200", "Фактично -"],
           ],
         },
@@ -86,7 +86,7 @@ function generatePdf(data) {
     pageMargins: [ 10, 10, 10, 10 ],
   };
 
-  pdfMake.createPdf(docDefinition).download();
+  pdfMake.createPdf(docDefinition).download(`${data.subjectName}.pdf`);
 }
 
 export { generatePdf };
