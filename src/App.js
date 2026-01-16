@@ -31,7 +31,7 @@ function App() {
   }
 
   const addRating = (workItem) => {
-    workItem.items.push({date: "", rating: ""});
+    workItem.items.push({date: "", rating: "", resultGroups: []});
     setData([...data]);
   }
 
@@ -52,6 +52,18 @@ function App() {
 
   const setRatingDate = (ratingItem, value) => {
     ratingItem.date = value;
+    setData([...data]);
+  }
+
+  const toggleResultGroup = (ratingItem, group) => {
+    if (!ratingItem.resultGroups) {
+      ratingItem.resultGroups = [];
+    }
+    if (ratingItem.resultGroups.includes(group)) {
+      ratingItem.resultGroups = ratingItem.resultGroups.filter(g => g !== group);
+    } else {
+      ratingItem.resultGroups = [...ratingItem.resultGroups, group].sort((a, b) => a - b);
+    }
     setData([...data]);
   }
 
@@ -85,6 +97,9 @@ function App() {
                         <th>
                           Бали
                         </th>
+                        <th>
+                          Групи результатів
+                        </th>
                         <th></th>
                       </tr>
                     </thead>
@@ -94,6 +109,19 @@ function App() {
                           <tr>
                             <td><Form.Control type="text" onChange={(e) => setRatingDate(item, e.target.value)} value={item.date}></Form.Control></td>
                             <td><Form.Control type="number" onChange={(e) => setRatingValue(item, e.target.value)} value={item.rating}></Form.Control></td>
+                            <td>
+                              <div className="d-flex gap-2">
+                                {[1, 2, 3, 4, 5].map((group) => (
+                                  <Form.Check
+                                    key={group}
+                                    type="checkbox"
+                                    label={group}
+                                    checked={item.resultGroups?.includes(group) || false}
+                                    onChange={() => toggleResultGroup(item, group)}
+                                  />
+                                ))}
+                              </div>
+                            </td>
                             <td><Button className="btn-danger" onClick={() => removeRating(workItem, index)}>X</Button></td>
                           </tr>
                         );

@@ -23,6 +23,12 @@ function generatePdf(data) {
     const dates = workItem.items.map(i => ({ text: i.date, alignment: 'center' }));
     dates.unshift("Дата");
 
+    const resultGroups = workItem.items.map(i => {
+      const groups = i.resultGroups || [];
+      return { text: groups.length > 0 ? `ГР ${groups.join(',')}` : '', alignment: 'center' };
+    });
+    resultGroups.unshift("Групи рез.");
+
     const ratings = workItem.items.map(i => ({ text: i.rating, alignment: 'center' }));
     ratings.unshift("Максимально");
 
@@ -35,6 +41,7 @@ function generatePdf(data) {
         widths: widths,
         body: [
           dates,
+          resultGroups,
           ratings,
           factRatings,
         ],

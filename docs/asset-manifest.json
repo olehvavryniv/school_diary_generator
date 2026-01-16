@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/school_diary_generator/static/css/main.49faa5e3.css",
-    "main.js": "/school_diary_generator/static/js/main.e4dcfe0d.js",
+    "main.js": "/school_diary_generator/static/js/main.c407563e.js",
     "static/js/488.bb115ee7.chunk.js": "/school_diary_generator/static/js/488.bb115ee7.chunk.js",
     "index.html": "/school_diary_generator/index.html",
     "main.49faa5e3.css.map": "/school_diary_generator/static/css/main.49faa5e3.css.map",
-    "main.e4dcfe0d.js.map": "/school_diary_generator/static/js/main.e4dcfe0d.js.map",
+    "main.c407563e.js.map": "/school_diary_generator/static/js/main.c407563e.js.map",
     "488.bb115ee7.chunk.js.map": "/school_diary_generator/static/js/488.bb115ee7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.49faa5e3.css",
-    "static/js/main.e4dcfe0d.js"
+    "static/js/main.c407563e.js"
   ]
 }
